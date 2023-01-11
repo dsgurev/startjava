@@ -22,6 +22,7 @@ public class VariablesTheme {
         char diskName = 'C';
         System.out.println("diskName           = " + diskName + "      | буква логического диска " + 
                 "(char -- 16-разрядное беззнаковое целое, представляющее собой символ UTF-16)");
+
         //2. Расчет стоимости товара со скидкой
         System.out.println("\n2. Расчет стоимости товара со скидкой");
         float penPrice = 100f;
@@ -30,12 +31,14 @@ public class VariablesTheme {
         float discont = totalPrice * 11 / 100;
         System.out.println("сумма скидки = " + discont + " руб.");
         System.out.println("общая стоимость товаров со скидкой = " + (totalPrice - discont) + " руб.");
+
         //3. Вывод слова JAVA
         System.out.println("\n3. Вывод слова JAVA");
         System.out.println("   J    a  v     v  a" +
                 "\n   J   a a  v   v  a a" +
                 "\nJ  J  aaaaa  V V  aaaaa" +
                 "\n JJ  a     a  V  a     a");
+
         //4. Вывод min и max значений целых числовых типов
         System.out.println("\n4. Вывод min и max значений целых числовых типов");
         byte byteNum = 127;
@@ -54,6 +57,7 @@ public class VariablesTheme {
         long longNumI = longNum + 1;
         long longNumD = longNumI - 1;
         System.out.println("long  " + longNum + " | " + longNumI + " | " + longNumD );
+
         //5. Перестановка значений переменных
         System.out.println("\n5. Перестановка значений переменных");
         System.out.println("с помощью третьей переменной");
@@ -77,6 +81,7 @@ public class VariablesTheme {
         num2 ^= num1;
         num1 ^= num2;
         System.out.println("новые значения переменных:    num1 = " + num1 + " | num2 = " + num2 );
+
         //6. Вывод символов и их кодов
         System.out.println("\n6. Вывод символов и их кодов");
         char char35 = '#';
@@ -94,6 +99,7 @@ public class VariablesTheme {
         System.out.println((short) char94);
         System.out.println(char95);
         System.out.println((short) char95);
+
         //7. Вывод в консоль ASCII-арт Дюка
         System.out.println("\n7. Вывод в консоль ASCII-арт Дюка");
         char slash = '/';
@@ -106,6 +112,7 @@ public class VariablesTheme {
                 "\n  " + slash + underline + leftBracket + " " + rightBracket + backslash +
                 "\n " + slash + "      " + backslash +
                 "\n" + slash + underline + underline + underline + underline + slash + backslash + underline + underline + backslash);
+
         //8. Вывод количества сотен, десятков и единиц числа
         System.out.println("\n8. Вывод количества сотен, десятков и единиц числа");
         short num = 123;
@@ -118,6 +125,7 @@ public class VariablesTheme {
                 "\n         " + units + " единиц");
         System.out.println("   Сумма его цифр = " + (hundreds + tens + units) +
                 "\n   Произведение = " + (hundreds * tens * units));
+        
         //9. Вывод времени
         System.out.println("\n9. Вывод времени");
         int secs = 86399;

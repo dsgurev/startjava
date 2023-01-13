@@ -68,24 +68,23 @@ public class IfElseStatementTheme {
         boolean isEqualDigit = false;
         int number1 = 123;
         int number2 = 321;
-        int equalDigitTemp;
-        equalDigitTemp = number1 / 100;
-        if (equalDigitTemp == number2 / 100) {
+        int digit = number1 / 100;
+        if (digit == number2 / 100) {
             isEqualDigit = true;
             System.out.println("У чисел " + number1 + " и " + number2 + " одинаковые цифры " +
-                equalDigitTemp + " в первом разряде");
+                digit + " в первом разряде");
         }
-        equalDigitTemp = number1 / 10 % 10;
-        if (equalDigitTemp == number2 / 10 % 10) {
+        digit = number1 / 10 % 10;
+        if (digit == number2 / 10 % 10) {
             isEqualDigit = true;
             System.out.println("У чисел " + number1 + " и " + number2 + " одинаковые цифры " +
-                equalDigitTemp + " во втором разряде");
+                digit + " во втором разряде");
         }
-        equalDigitTemp = number1 % 100 % 10;
-        if (equalDigitTemp == number2 % 100 % 10) {
+        digit = number1 % 100 % 10;
+        if (digit == number2 % 100 % 10) {
             isEqualDigit = true;
             System.out.println("У чисел " + number1 + " и " + number2 + " одинаковые цифры " +
-                equalDigitTemp + " во третьем разряде");
+                digit + " во третьем разряде");
         }
         if (!isEqualDigit) {
             System.out.println("У чисел " + number1 + " и " + number2 + " нет одинаковых цифр "+
@@ -110,14 +109,14 @@ public class IfElseStatementTheme {
         System.out.println("\n6. Подсчет суммы вклада и начисленных банком %");
         float amount = 300_000f;
         float percent = 5f;
-        if (100_000 <= amount && amount <= 300_000) {
+        if (amount >= 100_000 && amount <= 300_000) {
             percent = 7f;
         } else if (amount > 300_000) {
             percent = 10f;
         }
-        float calcPercentAmount = amount / 100 * percent;
-        System.out.println("Сумма вклада " + amount + "\nначисленный % " + calcPercentAmount +
-                "\nитоговая сумма с % " + (amount + calcPercentAmount));
+        float percentAmount = amount / 100 * percent;
+        System.out.println("Сумма вклада " + amount + "\nначисленный % " + percentAmount +
+                "\nитоговая сумма с % " + (amount + percentAmount));
 
         //7. Определение оценки по предметам
         System.out.println("\n7. Определение оценки по предметам");
@@ -161,40 +160,34 @@ public class IfElseStatementTheme {
         //9. Подсчет количества банкнот
         System.out.println("\n9. Подсчет количества банкнот");
         int sum = 567;
-        int cntHundreds = 0;
-        int cntTens = 0;
-        int cntOnes = 0;
-        int maxHundreds = 10;
-        int maxTens = 5;
-        int maxOnes = 50;
-        if (sum / 100 < 1 ) {
-            //сотни не нужны
-        } else if (sum / 100 < maxHundreds) {
-            cntHundreds = sum / 100;
-        } else {        
-            cntHundreds = maxHundreds;
-        }
-        if (cntHundreds != 0) {
-            sum -= cntHundreds * 100;
-        }
-        if (sum / 10 < 1 ) {
-            //десятки не нужны
-        } else if (sum / 10 < maxTens) {
-            cntTens = sum / 10;
+        int cnt100 = 0;
+        int cnt10 = 0;
+        int cnt1 = 0;
+        int numberOf100 = 10;
+        int numberOf10 = 5;
+        int numberOf1 = 50;
+        if (sum / 100 < numberOf100) {
+            cnt100 = sum / 100;
         } else {
-            cntTens = maxTens;
+            cnt100 = numberOf100;
         }
-        if (cntTens != 0) {
-            sum -= cntTens * 10;
+        if (cnt100 != 0) {
+            sum -= cnt100 * 100;
         }
-        if (sum < 1 ) {
-            //onedollar не нужны
-        } else if (sum < maxOnes) {
-            cntOnes = sum;
-            sum = cntHundreds * 100 + cntTens * 10 + cntOnes;
-            System.out.println("Банкноты 100USD - количество: " + cntHundreds +
-                    "\nБанкноты 10USD  - количество: " + cntTens +
-                    "\nБанкноты 1USD   - количество: " + cntOnes +
+        if (sum / 10 < numberOf10) {
+            cnt10 = sum / 10;
+        } else {
+            cnt10 = numberOf10;
+        }
+        if (cnt10 != 0) {
+            sum -= cnt10 * 10;
+        }
+        if (sum < numberOf1) {
+            cnt1 = sum;
+            sum = cnt100 * 100 + cnt10 * 10 + cnt1;
+            System.out.println("Банкноты 100USD - количество: " + cnt100 +
+                    "\nБанкноты 10USD  - количество: " + cnt10 +
+                    "\nБанкноты 1USD   - количество: " + cnt1 +
                     "\nВыдаваемая сумма " + sum);
         } else {
             System.out.println("для выдачи нужной суммы не хватает банкнот");

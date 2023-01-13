@@ -2,7 +2,7 @@ public class IfElseStatementTheme {
 
     public static void main(String[] args) {
         //1. Перевод псевдокода на язык Java 
-        System.out.println("\n1. Перевод псевдокода на язык Java ");
+        System.out.println("\n1. Перевод псевдокода на язык Java");
         byte age = 30;
         if (age > 20) {
             System.out.println("Вам больше 20 лет");
@@ -65,100 +65,93 @@ public class IfElseStatementTheme {
 
         //4. Поиск одинаковых цифр в числах
         System.out.println("\n4. Поиск одинаковых цифр в числах");
-        boolean isEqualDig = false;
+        boolean isEqualDigit = false;
         int number1 = 123;
         int number2 = 321;
-        int eqDig;
-        if (number1 / 100 == number2 / 100) {
-            isEqualDig = true;
-            eqDig = number1 / 100;
-            System.out.println("У чисел " + number1 + " и " + number2 + " одинаковые цифры " + 
-                eqDig + " в первом разряде");
+        int equalDigitTemp;
+        equalDigitTemp = number1 / 100;
+        if (equalDigitTemp == number2 / 100) {
+            isEqualDigit = true;
+            System.out.println("У чисел " + number1 + " и " + number2 + " одинаковые цифры " +
+                equalDigitTemp + " в первом разряде");
         }
-        if (number1 / 10 % 10 == number2 / 10 % 10) {
-            isEqualDig = true;
-            eqDig = number1 / 10 % 10;
-            System.out.println("У чисел " + number1 + " и " + number2 + " одинаковые цифры " + 
-                eqDig + " во втором разряде");
+        equalDigitTemp = number1 / 10 % 10;
+        if (equalDigitTemp == number2 / 10 % 10) {
+            isEqualDigit = true;
+            System.out.println("У чисел " + number1 + " и " + number2 + " одинаковые цифры " +
+                equalDigitTemp + " во втором разряде");
         }
-        if (number1 % 100 % 10 == number2 % 100 % 10) {
-            isEqualDig = true;
-            eqDig = number1 % 100 % 10;
-            System.out.println("У чисел " + number1 + " и " + number2 + " одинаковые цифры " + 
-                eqDig + " во втором разряде");
+        equalDigitTemp = number1 % 100 % 10;
+        if (equalDigitTemp == number2 % 100 % 10) {
+            isEqualDigit = true;
+            System.out.println("У чисел " + number1 + " и " + number2 + " одинаковые цифры " +
+                equalDigitTemp + " во третьем разряде");
         }
-        if (!isEqualDig) {
+        if (!isEqualDigit) {
             System.out.println("У чисел " + number1 + " и " + number2 + " нет одинаковых цифр "+
                 "стоящих в одном разряде");
         }
 
         //5. Определение символа по его коду
         System.out.println("\n5. Определение символа по его коду");
-        char character = '\u0057';
-        if ((character > 'a' & character < 'z') | (character > 'а' & character < 'я')) {
-            System.out.println("Символ " + character + " является маленькой буквой");
-        } else if ((character > 'A' & character < 'Z') | (character > 'А' & character < 'Я')) {
-            System.out.println("Символ " + character + " является большой буквой");
-        } else if (character > '0' & character < '9') {
-            System.out.println("Символ " + character + " является числом");
+        char unknownСhar = '\u0057';
+        if ((unknownСhar > 'a' && unknownСhar < 'z') || (unknownСhar > 'а' && unknownСhar < 'я')) {
+            System.out.println("Символ " + unknownСhar + " является маленькой буквой");
+        } else if ((unknownСhar > 'A' && unknownСhar < 'Z') || 
+                (unknownСhar > 'А' && unknownСhar < 'Я')) {
+            System.out.println("Символ " + unknownСhar + " является большой буквой");
+        } else if (unknownСhar > '0' && unknownСhar < '9') {
+            System.out.println("Символ " + unknownСhar + " является числом");
         } else {
-            System.out.println("Символ " + character + " не буква и не число");
+            System.out.println("Символ " + unknownСhar + " не буква и не число");
         }
 
         //6. Подсчет суммы вклада и начисленных банком %
         System.out.println("\n6. Подсчет суммы вклада и начисленных банком %");
         float amount = 300_000f;
-        float percent = 0f;
-        if (amount < 100_000) {
-            percent = 5f;
-        } else if (100_000 <= amount & amount <= 300_000) {
+        float percent = 5f;
+        if (100_000 <= amount && amount <= 300_000) {
             percent = 7f;
         } else if (amount > 300_000) {
             percent = 10f;
         }
-        System.out.println("Сумма вклада " + amount + "\nначисленный % " + 
-                (amount * percent / 100) + "\nитоговая сумма с % " + 
-                (amount + amount * percent / 100));
+        float calcPercentAmount = amount / 100 * percent;
+        System.out.println("Сумма вклада " + amount + "\nначисленный % " + calcPercentAmount +
+                "\nитоговая сумма с % " + (amount + calcPercentAmount));
 
         //7. Определение оценки по предметам
         System.out.println("\n7. Определение оценки по предметам");
-        float prcHist = 59f;
-        float prcProg = 91f;
-        float prcAvg = 0f;
-        byte scoreHist = 0;
-        byte scoreProg = 0;
-        float scoreAvg = 0f;
-        if (prcHist <= 60) {
-            scoreHist = 2;
-        } else if (prcHist > 91) {
-            scoreHist = 5;
-        } else if (prcHist > 73) {
-            scoreHist = 4;
-        } else if (prcHist > 60) {
-            scoreHist = 3;
+        float percentHistory = 59f;
+        float percentProgramming = 91f;
+        byte scoreHistory = 2;
+        byte scoreProgramming = 2;
+        if (percentHistory > 91) {
+            scoreHistory = 5;
+        } else if (percentHistory > 73) {
+            scoreHistory = 4;
+        } else if (percentHistory > 60) {
+            scoreHistory = 3;
         }
-        if (prcProg <= 60) {
-            scoreProg = 2;
-        } else if (prcProg > 91) {
-            scoreProg = 5;
-        } else if (prcProg > 73) {
-            scoreProg = 4;
-        } else if (prcProg > 60) {
-            scoreProg = 3;
+        if (percentProgramming > 91) {
+            scoreProgramming = 5;
+        } else if (percentProgramming > 73) {
+            scoreProgramming = 4;
+        } else if (percentProgramming > 60) {
+            scoreProgramming = 3;
         }
-        System.out.println("Итоговые оценки:\n" + scoreHist + " - история\n" + scoreProg +
+        System.out.println("Итоговые оценки:\n" + scoreHistory + " - история\n" + scoreProgramming +
                 " - программирование");
-        scoreAvg = (float) (scoreHist + scoreProg) / 2;
-        System.out.println("Средний балл оценок по предметам: " + scoreAvg);
-        prcAvg = (float) (prcHist + prcProg) / 2;
-        System.out.println("Средний % по предметам: " + prcAvg);
+        float scoreAverage = (float) (scoreHistory + scoreProgramming) / 2;
+        System.out.println("Средний балл оценок по предметам: " + scoreAverage);
+        float percentAverage = (float) (percentHistory + percentProgramming) / 2;
+        System.out.println("Средний % по предметам: " + percentAverage);
 
         //8. Расчет прибыли за год
         System.out.println("\n8. Расчет прибыли за год");
         float rent = 5_000f;
         float sale = 13_000f;
         float cost = 9_000f;
-        float profit = (float)( sale - rent - cost ) * 12;
+        float profit = (float) (sale - rent - cost) * 12;
         if (profit < 0) {
             System.out.println("прибыль за год: " + profit + " руб.");
         } else {

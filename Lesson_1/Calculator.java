@@ -5,7 +5,6 @@ public class Calculator {
         int b = 8;
         char sign = '^';
         int result = 0;
-        boolean isFail = false;
         switch (sign) {
             case '+':
                 result = a + b;
@@ -30,11 +29,8 @@ public class Calculator {
                 break;
             default:
                 System.out.println("Операция не поддерживается");
-                isFail = true;
-                break;
+                return;
         }
-        if (!isFail) {
-            System.out.println(a + " " + sign + " " + b + " = " + result);
-        }
+        System.out.println(a + " " + sign + " " + b + " = " + result);
     }
 }

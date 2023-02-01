@@ -6,23 +6,23 @@ public class Person {
     Float weight = 115.21f;
     int age = 21;
 
-    void walk(){
+    void walk() {
         System.out.println("walking");
     }
 
-    void sit(){
+    void sit() {
         System.out.println("sitting");
     }
 
-    void run(){
+    void run() {
         System.out.println("running");
     }
 
-    void speak(){
+    void speak() {
         System.out.println("speaking");
     }
 
-    void learnJava(){
+    void learnJava() {
         System.out.println("study");
     }
 }

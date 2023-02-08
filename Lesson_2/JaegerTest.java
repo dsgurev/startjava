@@ -2,8 +2,6 @@ public class JaegerTest {
 
     public static void main(String[] args) {
         Jaeger jaegerOne = new Jaeger();
-        Jaeger jaegerTwo = new Jaeger("Bracer Phoenix", "Mark-5", "USA", 1);
-
         jaegerOne.setModelName("Chronos Berserker");
         jaegerOne.setMark("Mark-5");
         jaegerOne.setOrigin("Australia");
@@ -15,6 +13,7 @@ public class JaegerTest {
         System.out.println("Страна производства: " + jaegerOne.getOrigin());
         System.out.println("Текущая скорость: " + jaegerOne.getSpeed());
         System.out.println("-=Второй робот=-");
+        Jaeger jaegerTwo = new Jaeger("Bracer Phoenix", "Mark-5", "USA", 1);
         System.out.println("Модель: " + jaegerTwo.getModelName());
         System.out.println("Поколение: " + jaegerTwo.getMark());
         System.out.println("Страна производства: " + jaegerTwo.getOrigin());

@@ -47,7 +47,7 @@ public class Jaeger {
         return speed;
     }
 
-    public void checkMoving(){
+    public void checkMoving() {
         if (speed != 0) {
             System.out.println(modelName + " перемещается!");
         } else {
@@ -55,7 +55,7 @@ public class Jaeger {
         }
     }
 
-    public void checkSpeed(){
+    public void showSpeed() {
         System.out.println("Скорость " + modelName + " = " + speed);
     }
 }

@@ -1,8 +1,11 @@
+import java.util.Scanner;
+
 public class GuessNumber {
     public Player playerOne;
     public Player playerTwo;
     public Player player;
     private int targetNumber;
+    private Scanner scan = new Scanner(System.in);
 
     public GuessNumber(Player playerOne, Player playerTwo) {
         this.playerOne = playerOne;
@@ -26,20 +29,30 @@ public class GuessNumber {
     }
 
     public void tryGuess() {
-        player.setNumber();
+        do {
+            System.out.print("Игрок " + player.getName() + " введите число: ");
+            player.setNumber(scan.nextInt());
+        } while (player.getNumber() < 1 || player.getNumber() > 100);
     }
 
-    public boolean checkNumber() {
-        boolean isGuessed = false;
-        if (player.getNumber() < targetNumber) {
-            System.out.printf("Число %3d меньше того, что загадал компьютер\n", player.getNumber());
-        } else if (player.getNumber() > targetNumber) {
-            System.out.printf("Число %3d больше того, что загадал компьютер\n", player.getNumber());
+    public void checkNumber() {
+        int playerNumber = player.getNumber();
+        if (playerNumber < targetNumber) {
+            System.out.printf("Число %3d меньше того, что загадал компьютер\n", playerNumber);
+        } else if (playerNumber > targetNumber) {
+            System.out.printf("Число %3d больше того, что загадал компьютер\n", playerNumber);
         } else {
             System.out.printf("%s, вы победили! Число %d угадано\n", player.getName(), 
                 targetNumber);
-            isGuessed = true;
         }
-        return isGuessed;
+    }
+
+    public void startGame() {
+        setTargetNumber();
+        do {
+            switchPlayer();
+            tryGuess();
+            checkNumber();
+        } while (targetNumber != player.getNumber());
     }
 }

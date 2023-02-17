@@ -5,14 +5,14 @@ public class GuessNumberTest {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         System.out.print("Игрок 1 введите своё имя: ");
-        Player playerOne = new Player(scan.nextLine());
+        Player player1 = new Player(scan.nextLine());
         System.out.print("Игрок 2 введите своё имя: ");
-        Player playerTwo = new Player(scan.nextLine());
-        GuessNumber guessNumber = new GuessNumber(playerOne, playerTwo);
+        Player player2 = new Player(scan.nextLine());
+        GuessNumber game = new GuessNumber(player1, player2);
 
         String answer = "yes";
         while (answer.equals("yes")) {
-            guessNumber.startGame();
+            game.start();
             do {
                 System.out.print("Хотите продолжить игру? [yes/no]: ");
                 answer = scan.next();

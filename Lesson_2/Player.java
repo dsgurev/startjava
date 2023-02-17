@@ -6,15 +6,18 @@ public class Player {
         this.name = name;
     }
 
-    public String getName() {
-        return name;
-    }
-    
     public void setNumber(int number) {
-        this.number = number;
+        if (number < 1 || number > 100) {
+            System.out.println("Введённое число выходит за пределы полуинтервала (0, 100]");
+            this.number = 0;
+        } else this.number = number;
     }
 
     public int getNumber() {
         return number;
+    }
+
+    public String getName() {
+        return name;
     }
 }

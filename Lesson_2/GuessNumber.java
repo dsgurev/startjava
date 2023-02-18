@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class GuessNumber {
     private Player player1;
     private Player player2;
-    private Player playerCurrent;
+    private Player currentPlayer;
     private int targetNumber;
 
     public GuessNumber(Player player1, Player player2) {
@@ -12,43 +12,43 @@ public class GuessNumber {
     }
 
     public void start() {
-        setTargetNumber();
+        generateTargetNumber();
         do {
             switchPlayer();
             tryGuess();
-        } while (checkNumberIsGuessed() == false);
+        } while (isGuessed() == false);
     }
 
-    private void setTargetNumber() {
-        targetNumber = (int) Math.ceil(Math.random() * 100);
+    private void generateTargetNumber() {
+        targetNumber = (int) (Math.random() * 100 + 1);
         System.out.println("Компьютер загадал число");
     }
 
     private void switchPlayer() {
-        playerCurrent = (playerCurrent == null || playerCurrent == player2) ? player1 : player2;
+        currentPlayer = currentPlayer == player1 ? player2 : player1;
     }
 
     private void tryGuess() {
         Scanner scan = new Scanner(System.in);
         do {
-            System.out.print("Игрок " + playerCurrent.getName() + " введите число: ");
-            playerCurrent.setNumber(scan.nextInt());
-        } while (playerCurrent.getNumber() == 0);
+            System.out.print("Игрок " + currentPlayer.getName() + " введите число: ");
+            currentPlayer.setNumber(scan.nextInt());
+        } while (currentPlayer.getNumber() == 0);
     }
 
-    private boolean checkNumberIsGuessed() {
-        boolean numberIsGuessed = false;
-        int playerNumber = playerCurrent.getNumber();
+    private boolean isGuessed() {
+        int playerNumber = currentPlayer.getNumber();
 
         if (playerNumber < targetNumber) {
             System.out.printf("Число %3d меньше того, что загадал компьютер\n", playerNumber);
+            return false;
         } else if (playerNumber > targetNumber) {
             System.out.printf("Число %3d больше того, что загадал компьютер\n", playerNumber);
+            return false;
         } else {
-            System.out.printf("%s, вы победили! Число %d угадано\n", playerCurrent.getName(),
-            targetNumber);
-            numberIsGuessed = true;
+            System.out.printf("%s, вы победили! Число %d угадано\n", currentPlayer.getName(),
+                    targetNumber);
+            return true;
         }
-        return numberIsGuessed;
     }
 }

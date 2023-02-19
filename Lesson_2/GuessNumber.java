@@ -16,7 +16,7 @@ public class GuessNumber {
         do {
             switchPlayer();
             tryGuess();
-        } while (isGuessed() == false);
+        } while (!isGuessed());
     }
 
     private void generateTargetNumber() {
@@ -41,14 +41,13 @@ public class GuessNumber {
 
         if (playerNumber < targetNumber) {
             System.out.printf("Число %3d меньше того, что загадал компьютер\n", playerNumber);
-            return false;
         } else if (playerNumber > targetNumber) {
             System.out.printf("Число %3d больше того, что загадал компьютер\n", playerNumber);
-            return false;
         } else {
             System.out.printf("%s, вы победили! Число %d угадано\n", currentPlayer.getName(),
                     targetNumber);
             return true;
         }
+        return false;
     }
 }

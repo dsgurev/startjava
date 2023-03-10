@@ -1,22 +1,11 @@
+package com.startjava.lesson_1.final;
+
 public class Calculator {
 
-    private int a;
-    private int b;
-    private char sign;
-
-    public void setA(int a) {
-        this.a = a;
-    }
-
-    public void setB(int b) {
-        this.b = b;
-    }
-
-    public void setSign(char sign) {
-        this.sign = sign;
-    }
-
-    public void calc() {
+    public static void main(String[] args) {
+        int a = 2;
+        int b = 8;
+        char sign = '^';
         int result = 0;
         switch (sign) {
             case '+':
@@ -32,8 +21,8 @@ public class Calculator {
                 result = a / b;
                 break;
             case '^':
-                result = 1;
-                for (int i = 0; i < b; i++) {
+                result = a;
+                for (int i = 1; i < b; i++) {
                     result *= a;
                 }
                 break;
